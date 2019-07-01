@@ -7660,6 +7660,10 @@ static void op_handle_usb_removal(struct smb_charger *chg)
 		FORCE_RECHARGE_VOTER, false, 0);
 	vote(chg->usb_icl_votable,
 		AICL_RERUN_VOTER, false, 0);
+#ifdef CONFIG_FORCE_FAST_CHARGE
+	set_sdp_current(chg, USBIN_500MA);
+	chg->ffc_count = 0;
+#endif
 	op_battery_temp_region_set(chg, BATT_TEMP_INVALID);
 }
 
