@@ -25,8 +25,7 @@ export DTC_EXT=/mnt/Data/tools/Android_dev/dtc-1.6.1/dtc
 # export DTC_EXT=dtc
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export CROSS_COMPILE=/mnt/Data/tools/Android_dev/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
-# export CROSS_COMPILE=~/Android_Build/GCC_Google_Arm64/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-# export CROSS_COMPILE_ARM32=~/Android_Build/GCC_Google_Arm32/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
+export CROSS_COMPILE_ARM32=/mnt/Data/tools/Android_dev/gcc-linaro-7.5.0-2019.12-i686_aarch64-linux-gnu/bin/aarch64-linux-gnu-
 export LD_LIBRARY_PATH=/mnt/Data/tools/Android_dev/Clang_Google/linux-x86/$CLANG_RELEASE/bin:$LD_LIBRARY_PATH
 
 echo
