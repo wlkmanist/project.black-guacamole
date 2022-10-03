@@ -20,8 +20,11 @@ mkdir -p out
 export ARCH=arm64
 export SUBARCH=arm64
 export CLANG_PATH=/mnt/Data/tools/Android_dev/Clang_Google/linux-x86/$CLANG_RELEASE/bin
-export PATH=${CLANG_PATH}:${PATH}
-export DTC_EXT=/mnt/Data/tools/Android_dev/dtc-1.6.1/dtc
+export MKDTIMG_PATH=/mnt/Data/tools/Android_dev/mkdtimg/bin
+export SPLIT_DTB_PATH=/mnt/Data/tools/Android_dev/split-appended-dtb-master
+export PATH=${CLANG_PATH}:${MKDTIMG_PATH}:${SPLIT_DTB_PATH}:${PATH}
+# export DTC_EXT=/mnt/Data/tools/Android_dev/dtc-1.6.1/dtc
+export DTC_EXT=/home/wlkmanist/Proj/guacamole/project.black-guacamole/out/scripts/dtc/dtc
 # export DTC_EXT=dtc
 export CLANG_TRIPLE=aarch64-linux-gnu-
 export CROSS_COMPILE=/mnt/Data/tools/Android_dev/gcc-linaro-7.5.0-2019.12-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-
@@ -38,6 +41,10 @@ echo "Build The Good Stuff"
 echo 
 
 make ARCH=arm64 CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip O=out -j4
+
+cd ~/Proj/guacamole/project.black-guacamole/out/arch/arm64/boot/
+split-appended-dtb ./Image-dtb
+cat ./dtbdump_*.dtb >> ./dtb
 
 BUILD_END=$(date +"%s")
 TIME_DIFF=$(($BUILD_END - $BUILD_START))
