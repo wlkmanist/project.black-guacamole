@@ -142,7 +142,7 @@ static struct clk_rcg2 gpu_cc_gmu_clk_src = {
 		.num_rate_max = VDD_NUM,
 		.rate_max = (unsigned long[VDD_NUM]) {
 			[VDD_MIN] = 200000000,
-			[VDD_LOW] = 400000000,
+			[VDD_LOWER] = 400000000,
 			[VDD_LOW] = 500000000},
 	},
 };
