@@ -218,7 +218,13 @@ KBUILD_DTBS	:= dtbs
 KBUILD_DTBO_IMG := dtbo.img
 
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
-export DTC_FLAGS := -@
+export DTC_FLAGS := -@ \
+  -Wno-unit_address_vs_reg \
+  -Wno-simple_bus_reg \
+	-Wno-unit_address_format \
+	-Wno-pci_bridge \
+	-Wno-pci_device_bus_num \
+	-Wno-pci_device_reg
 endif
 
 all:	$(KBUILD_DTBS) $(KBUILD_TARGET)
