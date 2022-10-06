@@ -466,6 +466,7 @@ struct aw8697 {
     int index;
     int vmax;
     int gain;
+    bool gain_override;
     int level;
 
     unsigned char seq[AW8697_SEQUENCER_SIZE];
